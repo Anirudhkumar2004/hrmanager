@@ -153,7 +153,7 @@ SIMPLE_JWT = {
 
 CORS_ALLOWED_ORIGINS = config(
     "CORS_ALLOWED_ORIGINS",
-    default="http://localhost:5173,http://127.0.0.1:5173",
+    default="https://hrmanager-frontend-1i5l.onrender.com,http://localhost:5173,http://127.0.0.1:5173",
     cast=Csv(),
 )
 
