@@ -23,7 +23,7 @@ api.interceptors.response.use(
       if (refreshToken) {
         try {
           const response = await axios.post(
-            `${import.meta.env.VITE_API_BASE_URL || 'https://hrmanager-hepg.onrender.com/api'}/auth/refresh/`,
+            `${import.meta.env.VITE_API_BASE_URL || 'https://hrmanager-hepg.onrender.com'}/auth/refresh/`,
             { refresh: refreshToken },
           )
           localStorage.setItem('hrgenius_access', response.data.access)
