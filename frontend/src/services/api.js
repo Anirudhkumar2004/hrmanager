@@ -23,13 +23,13 @@ api.interceptors.response.use(
       if (refreshToken) {
         try {
           const response = await axios.post(
-            `${import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api'}/auth/refresh/`,
+            `${import.meta.env.VITE_API_BASE_URL || 'https://hrmanager-hepg.onrender.com/api'}/auth/refresh/`,
             { refresh: refreshToken },
           )
           localStorage.setItem('hrgenius_access', response.data.access)
           if (response.data.refresh) {
             localStorage.setItem('hrgenius_refresh', response.data.refresh)
-          }
+      
           originalRequest.headers.Authorization = `Bearer ${response.data.access}`
           return api(originalRequest)
         } catch (refreshError) {
