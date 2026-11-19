@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://hrmanager-hepg.onrender.com/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api',
 })
 
 api.interceptors.request.use((config) => {
@@ -23,7 +23,7 @@ api.interceptors.response.use(
       if (refreshToken) {
         try {
           const response = await axios.post(
-            `${import.meta.env.VITE_API_BASE_URL || 'https://hrmanager-hepg.onrender.com'}/auth/refresh/`,
+            `${import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api'}/auth/refresh/`,
             { refresh: refreshToken },
           )
           localStorage.setItem('hrgenius_access', response.data.access)
